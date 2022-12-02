@@ -5,25 +5,7 @@
 
 using namespace std;
 
-int part_1() {
-    ifstream fileStream;
-    fileStream.open("input.txt");
-    int total = 0;
-    int highest = 0;
-
-    string line;
-    while(getline(fileStream, line)) {
-        if (line.empty()) {
-            if (total > highest) highest = total;
-            total = 0;
-            continue;
-        }
-        total = total + stoi(line);
-    }
-    return highest;
-}
-
-int part_2() {
+int main() {
     ifstream fileStream;
     fileStream.open("input.txt");
     int total = 0;
@@ -42,18 +24,13 @@ int part_2() {
     total_list.sort();
     total_list.reverse();
 
-    int top = 0;
+    int top = total_list.front();
+    int top3 = 0;
     for(int i = 0; i < 3; i++) {
-        top = top + total_list.front();
+        top3 = top3 + total_list.front();
         total_list.pop_front();
     }
-    return top;
-}
-
-
-int main()
-{
-    cout << "Part 1: " << part_1() << endl;
-    cout << "Part 2: " << part_2() << endl;
+    cout << "Part 1: " << top << endl;
+    cout << "Part 2: " << top3 << endl;
     return 0;
 }
