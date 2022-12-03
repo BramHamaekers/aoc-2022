@@ -25,8 +25,7 @@ int main() {
     int score_1 = 0;
     int score_2 = 0;
     string line;
-    while (getline(fileStream, line))
-    {
+    while (getline(fileStream, line)) {
         char a = line[0];
         char b = line[2];
         score_1 += calculate_score_1(a, b);
