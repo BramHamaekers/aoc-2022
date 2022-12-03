@@ -3,30 +3,29 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <iterator>
 
 using namespace std;
-
-char find_item_type(string a, string b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    string item_type;
-    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(item_type));
-    return item_type[0];
-}
 
 int get_priority(int item_type) {
     if (item_type > 96) return item_type - 96;
     else return item_type - 38;
 }
 
-char find_badge(vector<string> lines) {
-    sort(lines[0].begin(), lines[0].end());
-    sort(lines[1].begin(), lines[1].end());
-    sort(lines[2].begin(), lines[2].end());
-    string temp, badge;
-    set_intersection(lines[0].begin(), lines[0].end(), lines[1].begin(), lines[1].end(), back_inserter(temp));    
-    set_intersection(temp.begin(), temp.end(), lines[2].begin(), lines[2].end(), back_inserter(badge));
-    return badge[0];
+char find_common_item(vector<string> strings) {
+    for (string &str : strings) {
+        sort(str.begin(), str.end());
+    }
+    string item;
+    for (string str : strings) {
+        if (item.empty()) item = str;
+        else {
+            string tmp;
+            set_intersection(item.begin(), item.end(), str.begin(), str.end(), inserter(tmp, tmp.begin()));
+            item = tmp;
+        }
+    }
+    return item[0];
 }
 
 int main() {
@@ -39,12 +38,12 @@ int main() {
     while (getline(fileStream, line)) {
         string a = line.substr(0, line.length()/2);
         string b = line.substr(line.length()/2);
-        item_sum += get_priority(find_item_type(a, b));
+        item_sum += get_priority(find_common_item({a, b}));
 
         counter++;
         lines.push_back(line);
         if (counter == 3) {
-            badge_sum += get_priority(find_badge(lines));
+            badge_sum += get_priority(find_common_item(lines));
             lines.clear();
             counter = 0;
         }
