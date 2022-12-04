@@ -21,7 +21,7 @@ bool contains(int min_1, int max_1, int min_2, int max_2) {
 }
 
 bool overlaps(int min_1, int max_1, int min_2, int max_2) {
-    return (min_1 <= min_2 && min_2 <= max_1) || (min_1 <= max_2 && max_2 <= max_1) || contains(min_1, max_1, min_2, max_2);
+  return (min_1 <= max_2 && min_2 <= max_1);
 }
 
 int main() {
