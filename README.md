@@ -22,14 +22,14 @@ A list repositories with solutions, made by [KULeuven students](https://github.c
 | [01](https://adventofcode.com/2022/day/1)  | Calorie Counting         | ⭐⭐ |
 | [02](https://adventofcode.com/2022/day/2)  | Rock Paper Scissors      | ⭐⭐ |
 | [03](https://adventofcode.com/2022/day/3)  | Rucksack Reorganization  | ⭐⭐ |
+| [04](https://adventofcode.com/2022/day/4)  | Camp Cleanup             | ⭐⭐ |
 <!--
-| [04](https://adventofcode.com/2022/day/4)  | Giant Squid              | ⭐⭐ |
-| [05](https://adventofcode.com/2022/day/5)  | Hydrothermal Venture     | ⭐⭐ |
-| [06](https://adventofcode.com/2022/day/6)  | Lanternfish              | ⭐⭐ |
-| [07](https://adventofcode.com/2022/day/7)  | The Treachery of Whales  | ⭐⭐ |
-| [08](https://adventofcode.com/2022/day/8)  | Seven Segment Search     | ⭐⭐ |
-| [09](https://adventofcode.com/2022/day/9)  | Smoke Basin              | ⭐⭐ |
-| [10](https://adventofcode.com/2022/day/10) | Syntax Scoring           | ⭐⭐ |
+| [05](https://adventofcode.com/2022/day/5)  |                      | ⭐⭐    |
+| [06](https://adventofcode.com/2022/day/6)  |                      | ⭐⭐    |
+| [07](https://adventofcode.com/2022/day/7)  |                      | ⭐⭐    |
+| [08](https://adventofcode.com/2022/day/8)  |                      | ⭐⭐    |
+| [09](https://adventofcode.com/2022/day/9)  |                      | ⭐⭐    |
+| [10](https://adventofcode.com/2022/day/10) |                      | ⭐⭐    |
 
 | [11](https://adventofcode.com/2022/day/11) |                      | ⭐⭐    |
 | [12](https://adventofcode.com/2022/day/12) |                      | ⭐⭐    |
