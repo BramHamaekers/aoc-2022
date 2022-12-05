@@ -3,6 +3,7 @@
 #include <string>
 #include <stack>
 #include <vector>
+#include <tuple>
 
 using namespace std;
 
@@ -47,59 +48,50 @@ class SuplyStack {
         }
 };
 
-
-void part_1() {
-    ifstream fileStream;
-    fileStream.open("input.txt");
-    int num_of_stacks = 9; // Change Depending on the inputFile
-
-    vector<SuplyStack> stacks(num_of_stacks);
-
+vector<SuplyStack> parse_stacks(ifstream &fileStream){
+    vector<SuplyStack> stacks(9);
     string line;
     while (getline(fileStream, line)) {
-
         if (line.empty()) break;
         if (line[1] == '1') continue;
-        for (int i=1; i<=1+(num_of_stacks-1)*4; i+=4) {
+        for (int i=1; i<=1+(9-1)*4; i+=4) {
             if (line[i] == ' ') continue;
             stacks[i/4].crates.push_back(line[i]);
         }
     }
+    return stacks;
+}
+
+tuple<int, int, int> parse_command(string line) {
+    return make_tuple(
+        atoi(&line[5]),
+        atoi(&line[12])-1,
+        atoi(&line[17])-1
+    );
+}
+
+void part_1() {
+    ifstream fileStream;
+    fileStream.open("input.txt");
+    string line;
+    vector<SuplyStack> stacks = parse_stacks(fileStream);
     while (getline(fileStream, line)) {
-        int n = atoi(&line[5]);
-        int from = atoi(&line[12])-1;
-        int to = atoi(&line[17])-1;
+        int n, from, to;
+        tie(n, from, to) = parse_command(line);
         stacks[from].move_single(n, stacks[to]);
-    }
-        for (SuplyStack stack : stacks) cout << stack.crates.front();
- 
+    } for (SuplyStack stack : stacks) cout << stack.crates.front();
 }
 
 void part_2() {
     ifstream fileStream;
     fileStream.open("input.txt");
-    int num_of_stacks = 9; // Change Depending on the inputFile
-
-    vector<SuplyStack> stacks(num_of_stacks);
-
     string line;
+    vector<SuplyStack> stacks = parse_stacks(fileStream);
     while (getline(fileStream, line)) {
-
-        if (line.empty()) break;
-        if (line[1] == '1') continue;
-        for (int i=1; i<=1+(num_of_stacks-1)*4; i+=4) {
-            if (line[i] == ' ') continue;
-            stacks[i/4].crates.push_back(line[i]);
-        }
-    }
-    while (getline(fileStream, line)) {
-        int n = atoi(&line[5]);
-        int from = atoi(&line[12])-1;
-        int to = atoi(&line[17])-1;
+        int n, from, to;
+        tie(n, from, to) = parse_command(line);
         stacks[from].move_multiple(n, stacks[to]);
-    }
-        for (SuplyStack stack : stacks) cout << stack.crates.front();
- 
+    } for (SuplyStack stack : stacks) cout << stack.crates.front(); 
 }
 
 int main() {
