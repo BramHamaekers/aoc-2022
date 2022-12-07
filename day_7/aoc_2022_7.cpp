@@ -22,14 +22,7 @@ class Entry {
             file_size = _size;
         }
 
-        void add_file(string line) {
-            if (line.substr(0,3) == "dir") return;
-            string _name = line.substr(line.find(' ')+1);
-            string _size = line.substr(0, line.find(' '));
-            this->members.insert(new Entry("file", _name, stoi(_size), this));
-            }
-
-        void add_dir(Entry* child) {
+        void add_member(Entry* child) {
             child->parent = this;
             this->members.insert(child);
         }
@@ -66,11 +59,15 @@ Entry create_file_system() {
                     }
                 else {
                     Entry* child = new Entry("dir", line.substr(5), 0, current);
-                    current->add_dir(child);
+                    current->add_member(child);
                     current = child;
                 }
             }
-        } else current->add_file(line);
+        } else {
+            string _name = line.substr(line.find(' ')+1);
+            string _size = line.substr(0, line.find(' '));
+            if (_size != "dir") current->add_member(new Entry("file", _name, stoi(_size), current));
+        }
     } return root; 
 }
 
