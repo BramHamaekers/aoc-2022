@@ -58,7 +58,7 @@ Entry create_file_system() {
         Entry *child = new Entry("dir", line.substr(5), 0, current);
         current->add_member(child);
         current = child;
-    }
+        }
     } return root; 
 }
 
