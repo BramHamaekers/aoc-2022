@@ -23,11 +23,8 @@ class Entry {
         }
 
         void add_member(Entry* child) {
-            child->parent = this;
             this->members.insert(child);
         }
-
-        Entry* get_parent() {return parent;}
 
         int size() {
             if (this->type == "file") return this->file_size;
@@ -50,21 +47,18 @@ Entry create_file_system() {
 
     string line;
     while(getline(fileStream, line)) {
-        if (line == "$ cd /") continue;
-        if (line[0] != '$') {
+        if (line == "$ cd /" || line.substr(2, 2) == "ls"); // Do nothing
+        else if (line[0] != '$') {
             string _name = line.substr(line.find(' ')+1);
             string _size = line.substr(0, line.find(' '));
             if (_size != "dir") current->add_member(new Entry("file", _name, stoi(_size), current));
-            continue;
         }
-        if (line.substr(2, 2) == "ls") continue;
-        if (line.substr(5) == "..") {
-            current = current->get_parent();
-            continue;
-        }
+        else if (line.substr(5) == "..") current = current->parent;
+        else {
         Entry *child = new Entry("dir", line.substr(5), 0, current);
         current->add_member(child);
         current = child;
+    }
     } return root; 
 }
 
