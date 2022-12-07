@@ -70,7 +70,7 @@ tuple<int, int, int> parse_command(string line) {
     );
 }
 
-void part_1() {
+void crane(int part) {
     ifstream fileStream;
     fileStream.open("input.txt");
     string line;
@@ -78,23 +78,12 @@ void part_1() {
     while (getline(fileStream, line)) {
         int n, from, to;
         tie(n, from, to) = parse_command(line);
-        stacks[from].move_single(n, stacks[to]);
+        if (part == 1) stacks[from].move_single(n, stacks[to]);
+        if (part == 2) stacks[from].move_multiple(n, stacks[to]);
     } for (SuplyStack stack : stacks) cout << stack.crates.front();
 }
 
-void part_2() {
-    ifstream fileStream;
-    fileStream.open("input.txt");
-    string line;
-    vector<SuplyStack> stacks = parse_stacks(fileStream);
-    while (getline(fileStream, line)) {
-        int n, from, to;
-        tie(n, from, to) = parse_command(line);
-        stacks[from].move_multiple(n, stacks[to]);
-    } for (SuplyStack stack : stacks) cout << stack.crates.front(); 
-}
-
 int main() {
-        cout << "Part 1: "; part_1(); cout << endl;
-        cout << "Part 2: "; part_2(); cout << endl;
+        cout << "Part 1: "; crane(1); cout << endl;
+        cout << "Part 2: "; crane(2); cout << endl;
 }
