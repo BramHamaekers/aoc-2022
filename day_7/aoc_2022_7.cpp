@@ -30,12 +30,11 @@ class Entry {
         Entry* get_parent() {return parent;}
 
         int size() {
-            if (this->type == "dir") {
-                int dir_size = 0;
-                for (Entry* member: members) {
-                    dir_size += member->size();
-                } return dir_size;
-            } return this->file_size;
+            if (this->type == "file") return this->file_size;
+            int dir_size = 0;
+            for (Entry* member: members) {
+                dir_size += member->size();
+            } return dir_size;
         }
         
         private:
@@ -52,36 +51,33 @@ Entry create_file_system() {
     string line;
     while(getline(fileStream, line)) {
         if (line == "$ cd /") continue;
-        if (line[0] == '$') {
-            if (line.substr(2,2) == "cd")  {
-                if (line.substr(5) == "..") {
-                    current = current->get_parent();
-                    }
-                else {
-                    Entry* child = new Entry("dir", line.substr(5), 0, current);
-                    current->add_member(child);
-                    current = child;
-                }
-            }
-        } else {
+        if (line[0] != '$') {
             string _name = line.substr(line.find(' ')+1);
             string _size = line.substr(0, line.find(' '));
             if (_size != "dir") current->add_member(new Entry("file", _name, stoi(_size), current));
+            continue;
         }
+        if (line.substr(2, 2) == "ls") continue;
+        if (line.substr(5) == "..") {
+            current = current->get_parent();
+            continue;
+        }
+        Entry *child = new Entry("dir", line.substr(5), 0, current);
+        current->add_member(child);
+        current = child;
     } return root; 
 }
 
 int sum_small_dirs(Entry &dir) {
     int sum = 0;
     for (Entry* member : dir.members) {
-        if (member->type == "dir" && member->size() <= 100000) {
-            sum += member->size();
-        } sum += sum_small_dirs(*member);  
+        if (member->type == "dir" && member->size() <= 100000) sum += member->size();
+        sum += sum_small_dirs(*member);  
     } return sum;
 }
 
 vector<int> find_all_dir_sizes(Entry &root, vector<int> dir_sizes = {}) {
-    if (root.type == "dir") {dir_sizes.push_back(root.size());}
+    if (root.type == "dir") dir_sizes.push_back(root.size());
     for (Entry* member : root.members) {
         dir_sizes = find_all_dir_sizes(*member, dir_sizes);
     } return dir_sizes;
