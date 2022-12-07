@@ -1,9 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stack>
-#include <vector>
-#include <tuple>
 
 using namespace std;
 
