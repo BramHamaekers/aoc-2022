@@ -41,10 +41,8 @@ class Entry {
 Entry create_file_system() {
     ifstream fileStream;
     fileStream.open("input.txt");
-
     Entry root = Entry("dir", "/", 0);
     Entry* current = &root;
-
     string line;
     while(getline(fileStream, line)) {
         if (line == "$ cd /" || line.substr(2, 2) == "ls"); // Do nothing
