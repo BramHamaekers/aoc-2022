@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>
 
-
 using namespace std;
 
 vector<string> create_matrix() {
@@ -49,22 +48,23 @@ string rev(string str){
 int main() {
     vector<string> trees = create_matrix();
     vector<string> trees_T = transpose_matrix(trees);
-    int visible = 0;
-    int hi_score = 0;
+
     int m = trees.size();
     int n = trees_T.size(); // m x n matrix
-    visible += 2*m + 2*n - 4;
+    int visible = 2*m + 2*n - 4;
+    int hi_score = 0;
+
     for (int i = 1; i < m-1; i++)
         for (int j = 1; j < n-1; j++) {
-            visible += (is_visible(trees[i].substr(0, j), trees[i][j])      //left
-            || (is_visible(trees[i].substr(j+1), trees[i][j]))              //right
-            || (is_visible(trees_T[j].substr(0, i), trees_T[j][i]))         //top
-            || (is_visible(trees_T[j].substr(i+1), trees_T[j][i])));        //bottom;
+            visible += (is_visible(trees[i].substr(0, j), trees[i][j])          //left
+            || (is_visible(trees[i].substr(j+1), trees[i][j]))                  //right
+            || (is_visible(trees_T[j].substr(0, i), trees_T[j][i]))             //top
+            || (is_visible(trees_T[j].substr(i+1), trees_T[j][i])));            //bottom;
 
-            int score = (scenic_score(rev(trees[i].substr(0, j)), trees[i][j])   //left
-            * (scenic_score(trees[i].substr(j+1), trees[i][j]))             //right
-            * (scenic_score(rev(trees_T[j].substr(0, i)), trees_T[j][i]))        //top
-            * (scenic_score(trees_T[j].substr(i+1), trees_T[j][i]))         //bottom
+            int score = (scenic_score(rev(trees[i].substr(0, j)), trees[i][j])  //left
+            * (scenic_score(trees[i].substr(j+1), trees[i][j]))                 //right
+            * (scenic_score(rev(trees_T[j].substr(0, i)), trees_T[j][i]))       //top
+            * (scenic_score(trees_T[j].substr(i+1), trees_T[j][i]))             //bottom
             );
             if (score > hi_score) hi_score = score;
         }
