@@ -41,9 +41,8 @@ class SuplyStack {
 
         deque<char> pop_stack(int n) {
             deque<char> stack;
-            for (int i = 0; i<n; i++) {
+            for (int i = 0; i<n; i++)
                 stack.push_front(this->pop());
-            }
             return stack;
         }
 };

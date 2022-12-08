@@ -14,12 +14,12 @@ int main() {
     vector<int> total_v;
     string line;
     while(getline(fileStream, line)) {
-        if (line.empty()) {
-            total_v.push_back(total);
-            total = 0;
-            continue;
+        if (!line.empty()) {
+             total = total + stoi(line);
+             continue;
         }
-        total = total + stoi(line);
+        total_v.push_back(total);
+        total = 0;
     }
     total_v.push_back(total);
     sort(total_v.begin(), total_v.end());
