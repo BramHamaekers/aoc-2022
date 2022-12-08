@@ -26,8 +26,8 @@ A list repositories with solutions, made by [KULeuven students](https://github.c
 | [05](https://adventofcode.com/2022/day/5)  | Supply Stacks            | ⭐⭐ |
 | [06](https://adventofcode.com/2022/day/6)  | Tuning Trouble           | ⭐⭐ |
 | [07](https://adventofcode.com/2022/day/7)  | No Space Left On Device  | ⭐⭐ |
+| [08](https://adventofcode.com/2022/day/8)  | Treetop Tree House       | ⭐⭐ |
 <!--
-| [08](https://adventofcode.com/2022/day/8)  |                      | ⭐⭐    |
 | [09](https://adventofcode.com/2022/day/9)  |                      | ⭐⭐    |
 | [10](https://adventofcode.com/2022/day/10) |                      | ⭐⭐    |
 
