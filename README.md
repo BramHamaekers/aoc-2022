@@ -28,9 +28,8 @@ A list repositories with solutions, made by [KULeuven students](https://github.c
 | [07](https://adventofcode.com/2022/day/7)  | No Space Left On Device  | ⭐⭐ |
 | [08](https://adventofcode.com/2022/day/8)  | Treetop Tree House       | ⭐⭐ |
 | [09](https://adventofcode.com/2022/day/9)  | Rope Bridge              | ⭐⭐ |
+| [10](https://adventofcode.com/2022/day/10) | Cathode-Ray Tube         | ⭐⭐ |
 <!--
-| [10](https://adventofcode.com/2022/day/10) |                      | ⭐⭐    |
-
 | [11](https://adventofcode.com/2022/day/11) |                      | ⭐⭐    |
 | [12](https://adventofcode.com/2022/day/12) |                      | ⭐⭐    |
 | [13](https://adventofcode.com/2022/day/13) |                      | ⭐⭐    |
