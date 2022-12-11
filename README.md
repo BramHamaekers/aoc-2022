@@ -29,8 +29,8 @@ A list repositories with solutions, made by [KULeuven students](https://github.c
 | [08](https://adventofcode.com/2022/day/8)  | Treetop Tree House       | ⭐⭐ |
 | [09](https://adventofcode.com/2022/day/9)  | Rope Bridge              | ⭐⭐ |
 | [10](https://adventofcode.com/2022/day/10) | Cathode-Ray Tube         | ⭐⭐ |
+| [11](https://adventofcode.com/2022/day/11) | Monkey in the Middle     | ⭐    |
 <!--
-| [11](https://adventofcode.com/2022/day/11) |                      | ⭐⭐    |
 | [12](https://adventofcode.com/2022/day/12) |                      | ⭐⭐    |
 | [13](https://adventofcode.com/2022/day/13) |                      | ⭐⭐    |
 | [14](https://adventofcode.com/2022/day/14) |                      | ⭐⭐    |
