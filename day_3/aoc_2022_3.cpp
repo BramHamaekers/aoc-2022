@@ -50,5 +50,4 @@ int main() {
     }
     cout << "Part 1: " << item_sum << endl;
     cout << "Part 2: " << badge_sum << endl;
-    return 0;
 }

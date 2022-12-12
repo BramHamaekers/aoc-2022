@@ -70,5 +70,4 @@ int main() {
         }
     cout << "Part 1: " << visible << endl;
     cout << "Part 2: " << hi_score << endl;
-    return 0;
 }

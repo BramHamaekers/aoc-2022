@@ -39,5 +39,4 @@ int main() {
         (line == "noop") ? noop() : addx(stoi(line.substr(5)));
     cout << "Part 1: " << signal_strenght << endl;
     cout << "Part 2: " << endl << render.str() << endl;
-    return 0;
 }

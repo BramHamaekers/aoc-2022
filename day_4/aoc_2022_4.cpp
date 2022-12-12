@@ -39,5 +39,4 @@ int main() {
     }
     cout << "Part 1: " << contains_total << endl;
     cout << "Part 2: " << overlaps_total << endl;
-    return 0;
 }

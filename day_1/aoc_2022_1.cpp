@@ -25,5 +25,4 @@ int main() {
     sort(total_v.begin(), total_v.end());
     cout << "Part 1: " << total_v.back() << endl;
     cout << "Part 2: " << total_v.back() + total_v[total_v.size()-2] + total_v[total_v.size()-3] << endl;
-    return 0;
 }

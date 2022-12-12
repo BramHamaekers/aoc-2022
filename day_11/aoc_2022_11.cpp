@@ -122,7 +122,6 @@ int main() {
     for (Monkey monkey : monkeys) inspects.push_back(monkey.inspect_ctr); 
     sort(inspects.rbegin(), inspects.rend());
     cout << "Part 2: " << inspects[0] * inspects[1] << endl;
-    
 }
 
 

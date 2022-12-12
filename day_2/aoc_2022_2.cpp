@@ -33,5 +33,4 @@ int main() {
     }
     cout << "Part 1: " << score_1 << endl;
     cout << "Part 2: " << score_2 << endl;
-    return 0;
 }
