@@ -30,7 +30,8 @@ class Monkey {
             inspect_ctr++;
             long long item = items.front();
             items.pop();
-            if (flag == 1) item = func(item)/3;
+            item = func(item);
+            if (flag == 1) item = item/3;
             return item;
         }
 };
@@ -80,21 +81,48 @@ vector<Monkey> round(vector<Monkey> monkeys) {
         Monkey monkey = monkeys[i];
         while (!monkey.items.empty()) {
             long long item = monkey.inspect();
-            if ((item % lcm) % monkey.test == 0) monkeys[monkey.T].items.push(item);
-            else monkeys[monkey.F].items.push(item);
+            if ((item % lcm) % monkey.test == 0) monkeys[monkey.T].items.push(item % lcm);
+            else monkeys[monkey.F].items.push(item % lcm);
         } monkeys[i] = monkey;
     } return monkeys;
+}
+
+int do_rounds(int rounds) {
+    vector<Monkey> monkeys = parse_monkeys();
+    vector<long long> inspects;
+    for (Monkey monkey : monkeys) lcm *= monkey.test;
+    while (rounds-- > 0) monkeys = round(monkeys);
+    for (Monkey monkey : monkeys) inspects.push_back(monkey.inspect_ctr);
+    sort(inspects.rbegin(), inspects.rend());
+    return inspects[0] * inspects[1];
+}
+
+int my_main () {
+    cout << "Part 1: " << do_rounds(20) << endl;
+    flag = 2; lcm = 1;
+    cout << "Part 2: " << do_rounds(10000) << endl;
+    return 0;
 }
 
 int main() {
     vector<Monkey> monkeys = parse_monkeys();
     vector<long long> inspects;
-    for (Monkey monkey : monkeys) lcm *= monkey.test; //lcm for part 2 but it doesn't work for some reason
-    
+    for (Monkey monkey : monkeys) lcm *= monkey.test;
     long long rounds = 20;
     while (rounds-- > 0) monkeys = round(monkeys);
-    
-    for (Monkey monkey : monkeys) inspects.push_back(monkey.inspect_ctr);
+    for (Monkey monkey : monkeys) inspects.push_back(monkey.inspect_ctr); 
     sort(inspects.rbegin(), inspects.rend());
     cout << "Part 1: " << inspects[0] * inspects[1] << endl;
+    flag = 2;
+    monkeys.clear();
+    monkeys = parse_monkeys();
+    inspects.clear();
+    rounds = 10000;
+    while (rounds-- > 0) monkeys = round(monkeys);
+    for (Monkey monkey : monkeys) inspects.push_back(monkey.inspect_ctr); 
+    sort(inspects.rbegin(), inspects.rend());
+    cout << "Part 2: " << inspects[0] * inspects[1] << endl;
+    
 }
+
+
