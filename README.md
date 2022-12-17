@@ -30,8 +30,8 @@ A list repositories with solutions, made by [KULeuven students](https://github.c
 | [09](https://adventofcode.com/2022/day/9)  | Rope Bridge              | ⭐⭐ |
 | [10](https://adventofcode.com/2022/day/10) | Cathode-Ray Tube         | ⭐⭐ |
 | [11](https://adventofcode.com/2022/day/11) | Monkey in the Middle     | ⭐⭐ |
+| [12](https://adventofcode.com/2022/day/12) | Hill Climbing Algorithm  | ⭐⭐ |
 <!--
-| [12](https://adventofcode.com/2022/day/12) |                      | ⭐⭐    |
 | [13](https://adventofcode.com/2022/day/13) |                      | ⭐⭐    |
 | [14](https://adventofcode.com/2022/day/14) |                      | ⭐⭐    |
 | [15](https://adventofcode.com/2022/day/15) |                      | ⭐⭐    |
