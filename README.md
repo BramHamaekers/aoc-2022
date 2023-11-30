@@ -6,11 +6,11 @@
 
 [Advent of Code](http://adventofcode.com/) is an annual Advent calendar of programming puzzles.
 
-My Solutions are in c++. These solutions are not the best/most efficient. I am learning the language and will use concepts not because they would be the best 
+My Solutions are in C++. These solutions are not the best/most efficient. I am learning the language and will use concepts not because they would be the best 
 for that problem, but because I want to learn those concepts.
 
 ## KULeuven
-A list repositories with solutions, made by [KULeuven students](https://github.com/informatica-kul/aoc-2022).
+A list of repositories with solutions, made by [KULeuven students](https://github.com/informatica-kul/aoc-2022).
 
 
 
