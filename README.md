@@ -47,6 +47,6 @@ A list of repositories with solutions, made by [KULeuven students](https://githu
 | [25](https://adventofcode.com/2022/day/25) |                      | ⭐⭐    | -->
 
 ### Advent of Code 2023
-Rust solutions: https://github.com/BramHamaekers/aoc-2021
+Rust solutions: https://github.com/BramHamaekers/aoc-2023
 ### Advent of Code 2021
 Python solutions: https://github.com/BramHamaekers/aoc-2021
